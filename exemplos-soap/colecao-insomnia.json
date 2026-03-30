@@ -1,0 +1,149 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-03-30",
+  "__export_source": "insomnia.desktop.app",
+  "resources": [
+    {
+      "_id": "wrk_biblioteca",
+      "_type": "workspace",
+      "name": "Sistema de Biblioteca — SOAP",
+      "description": "WebService SOAP | Disciplina: Arquitetura SOA | FIAP"
+    },
+    {
+      "_id": "fld_main",
+      "_type": "request_group",
+      "parentId": "wrk_biblioteca",
+      "name": "📚 Biblioteca SOAP",
+      "description": "Endpoint: http://localhost:8080/biblioteca"
+    },
+    {
+      "_id": "req_1",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "1. Listar Livros Disponíveis",
+      "method": "POST",
+      "url": "http://localhost:8080/biblioteca",
+      "body": {
+        "mimeType": "application/xml",
+        "text": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:bib=\"http://biblioteca.fiap.com.br/\">\n    <soapenv:Header/>\n    <soapenv:Body>\n        <bib:listarLivrosDisponiveis/>\n    </soapenv:Body>\n</soapenv:Envelope>"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "text/xml;charset=UTF-8" },
+        { "name": "SOAPAction", "value": "\"http://biblioteca.fiap.com.br/listarLivrosDisponiveis\"" }
+      ]
+    },
+    {
+      "_id": "req_2",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "2. Buscar Livro por ISBN",
+      "method": "POST",
+      "url": "http://localhost:8080/biblioteca",
+      "body": {
+        "mimeType": "application/xml",
+        "text": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:bib=\"http://biblioteca.fiap.com.br/\">\n    <soapenv:Header/>\n    <soapenv:Body>\n        <bib:buscarLivroPorIsbn>\n            <isbn>978-85-7522-743-0</isbn>\n        </bib:buscarLivroPorIsbn>\n    </soapenv:Body>\n</soapenv:Envelope>"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "text/xml;charset=UTF-8" },
+        { "name": "SOAPAction", "value": "\"http://biblioteca.fiap.com.br/buscarLivroPorIsbn\"" }
+      ]
+    },
+    {
+      "_id": "req_3",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "3. Registrar Empréstimo",
+      "method": "POST",
+      "url": "http://localhost:8080/biblioteca",
+      "body": {
+        "mimeType": "application/xml",
+        "text": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:bib=\"http://biblioteca.fiap.com.br/\">\n    <soapenv:Header/>\n    <soapenv:Body>\n        <bib:registrarEmprestimo>\n            <isbn>978-85-7522-743-0</isbn>\n            <nomeUsuario>Maria Silva</nomeUsuario>\n            <cpfUsuario>12345678900</cpfUsuario>\n        </bib:registrarEmprestimo>\n    </soapenv:Body>\n</soapenv:Envelope>"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "text/xml;charset=UTF-8" },
+        { "name": "SOAPAction", "value": "\"http://biblioteca.fiap.com.br/registrarEmprestimo\"" }
+      ]
+    },
+    {
+      "_id": "req_4",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "4. Devolver Livro",
+      "method": "POST",
+      "url": "http://localhost:8080/biblioteca",
+      "body": {
+        "mimeType": "application/xml",
+        "text": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:bib=\"http://biblioteca.fiap.com.br/\">\n    <soapenv:Header/>\n    <soapenv:Body>\n        <bib:devolverLivro>\n            <idEmprestimo>EMP-1001</idEmprestimo>\n        </bib:devolverLivro>\n    </soapenv:Body>\n</soapenv:Envelope>"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "text/xml;charset=UTF-8" },
+        { "name": "SOAPAction", "value": "\"http://biblioteca.fiap.com.br/devolverLivro\"" }
+      ]
+    },
+    {
+      "_id": "req_5",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "5. Buscar por Autor",
+      "method": "POST",
+      "url": "http://localhost:8080/biblioteca",
+      "body": {
+        "mimeType": "application/xml",
+        "text": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:bib=\"http://biblioteca.fiap.com.br/\">\n    <soapenv:Header/>\n    <soapenv:Body>\n        <bib:buscarPorAutor>\n            <autor>Robert</autor>\n        </bib:buscarPorAutor>\n    </soapenv:Body>\n</soapenv:Envelope>"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "text/xml;charset=UTF-8" },
+        { "name": "SOAPAction", "value": "\"http://biblioteca.fiap.com.br/buscarPorAutor\"" }
+      ]
+    },
+    {
+      "_id": "req_6",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "6. Buscar por Título",
+      "method": "POST",
+      "url": "http://localhost:8080/biblioteca",
+      "body": {
+        "mimeType": "application/xml",
+        "text": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:bib=\"http://biblioteca.fiap.com.br/\">\n    <soapenv:Header/>\n    <soapenv:Body>\n        <bib:buscarPorTitulo>\n            <titulo>Clean</titulo>\n        </bib:buscarPorTitulo>\n    </soapenv:Body>\n</soapenv:Envelope>"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "text/xml;charset=UTF-8" },
+        { "name": "SOAPAction", "value": "\"http://biblioteca.fiap.com.br/buscarPorTitulo\"" }
+      ]
+    },
+    {
+      "_id": "req_7",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "7. Consultar Empréstimo por ID",
+      "method": "POST",
+      "url": "http://localhost:8080/biblioteca",
+      "body": {
+        "mimeType": "application/xml",
+        "text": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:bib=\"http://biblioteca.fiap.com.br/\">\n    <soapenv:Header/>\n    <soapenv:Body>\n        <bib:consultarEmprestimo>\n            <idEmprestimo>EMP-1001</idEmprestimo>\n        </bib:consultarEmprestimo>\n    </soapenv:Body>\n</soapenv:Envelope>"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "text/xml;charset=UTF-8" },
+        { "name": "SOAPAction", "value": "\"http://biblioteca.fiap.com.br/consultarEmprestimo\"" }
+      ]
+    },
+    {
+      "_id": "req_8",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "8. Listar Empréstimos por CPF",
+      "method": "POST",
+      "url": "http://localhost:8080/biblioteca",
+      "body": {
+        "mimeType": "application/xml",
+        "text": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:bib=\"http://biblioteca.fiap.com.br/\">\n    <soapenv:Header/>\n    <soapenv:Body>\n        <bib:listarEmprestimosPorCpf>\n            <cpfUsuario>12345678900</cpfUsuario>\n        </bib:listarEmprestimosPorCpf>\n    </soapenv:Body>\n</soapenv:Envelope>"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "text/xml;charset=UTF-8" },
+        { "name": "SOAPAction", "value": "\"http://biblioteca.fiap.com.br/listarEmprestimosPorCpf\"" }
+      ]
+    }
+  ]
+}
